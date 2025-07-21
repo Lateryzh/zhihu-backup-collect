@@ -23,7 +23,7 @@
 // @grant        GM_unregisterMenuCommand
 // ==/UserScript==
 
-/** 
+/**
 ## Changelog
 
 * 0.10.44（2025-06-19）:
@@ -179,7 +179,7 @@
 /***/ 227:
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
+  var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
 		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));else {}})(this,function(){"use strict";function b(a,b){return"undefined"==typeof b?b={autoBom:!1}:"object"!=typeof b&&(console.warn("Deprecated: Expected third argument to be a object"),b={autoBom:!b}),b.autoBom&&/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type)?new Blob(["\uFEFF",a],{type:a.type}):a}function c(a,b,c){var d=new XMLHttpRequest;d.open("GET",a),d.responseType="blob",d.onload=function(){g(d.response,b,c)},d.onerror=function(){console.error("could not download file")},d.send()}function d(a){var b=new XMLHttpRequest;b.open("HEAD",a,!1);try{b.send()}catch(a){}return 200<=b.status&&299>=b.status}function e(a){try{a.dispatchEvent(new MouseEvent("click"))}catch(c){var b=document.createEvent("MouseEvents");b.initMouseEvent("click",!0,!0,window,0,0,0,80,20,!1,!1,!1,!1,0,null),a.dispatchEvent(b)}}var f="object"==typeof window&&window.window===window?window:"object"==typeof self&&self.self===self?self:"object"==typeof __webpack_require__.g&&__webpack_require__.g.global===__webpack_require__.g?__webpack_require__.g:void 0,a=f.navigator&&/Macintosh/.test(navigator.userAgent)&&/AppleWebKit/.test(navigator.userAgent)&&!/Safari/.test(navigator.userAgent),g=f.saveAs||("object"!=typeof window||window!==f?function(){}:"download"in HTMLAnchorElement.prototype&&!a?function(b,g,h){var i=f.URL||f.webkitURL,j=document.createElement("a");g=g||b.name||"download",j.download=g,j.rel="noopener","string"==typeof b?(j.href=b,j.origin===location.origin?e(j):d(j.href)?c(b,g,h):e(j,j.target="_blank")):(j.href=i.createObjectURL(b),setTimeout(function(){i.revokeObjectURL(j.href)},4E4),setTimeout(function(){e(j)},0))}:"msSaveOrOpenBlob"in navigator?function(f,g,h){if(g=g||f.name||"download","string"!=typeof f)navigator.msSaveOrOpenBlob(b(f,h),g);else if(d(f))c(f,g,h);else{var i=document.createElement("a");i.href=f,i.target="_blank",setTimeout(function(){e(i)})}}:function(b,d,e,g){if(g=g||open("","_blank"),g&&(g.document.title=g.document.body.innerText="downloading..."),"string"==typeof b)return c(b,d,e);var h="application/octet-stream"===b.type,i=/constructor/i.test(f.HTMLElement)||f.safari,j=/CriOS\/[\d]+/.test(navigator.userAgent);if((j||h&&i||a)&&"undefined"!=typeof FileReader){var k=new FileReader;k.onloadend=function(){var a=k.result;a=j?a:a.replace(/^data:[^;]*;/,"data:attachment/file;"),g?g.location.href=a:location=a,g=null},k.readAsDataURL(b)}else{var l=f.URL||f.webkitURL,m=l.createObjectURL(b);g?g.location=m:location.href=m,g=null,setTimeout(function(){l.revokeObjectURL(m)},4E4)}});f.saveAs=g.saveAs=g, true&&(module.exports=g)});
@@ -211,7 +211,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -225,14 +225,14 @@ https://github.com/nodeca/pako/blob/master/LICENSE
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
@@ -245,7 +245,7 @@ https://github.com/nodeca/pako/blob/master/LICENSE
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -475,13 +475,17 @@ const getUpvote = (dom, scene, type) => {
     //if (scene == "follow" || scene == "people" || scene == "question" || scene == "answer") {//收藏夹
     //up_dom = (getParent(dom, "ContentItem") as HTMLElement).querySelector(".VoteButton--up") as HTMLElement//\n赞同 5.6 万
     let upvote, up_dom;
+    console.log("type", type)
+    console.log("scene", scene)
     if (type == "pin") {
         //个人页的想法有2层ContentItem-actions，想法页有1层
         up_dom = dom.closest('.ContentItem').querySelector(".ContentItem-actions>.ContentItem-actions") ||
             dom.closest('.ContentItem').querySelector(".ContentItem-actions");
+        console.log("up_dom", up_dom)
         up_dom = up_dom.childNodes[0];
         upvote = up_dom.textContent.replace(/,|\u200B/g, '').slice(3); //0, -4
         upvote ? 0 : upvote = 0;
+        console.log("upvote", upvote)
     }
     else if (scene == "article") {
         up_dom = dom.closest('.Post-content').querySelector(".ContentItem-actions .VoteButton");
@@ -1231,19 +1235,18 @@ function renderCommentToMarkdown(comment, comments, level = 0, isLocalImg) {
     //console.log(comment);
     // 基础模板
     const prefix = level ? '> '.repeat(level) : '';
-    const titleLevel = level ? '####' : '###';
+    const titleLevel = level ? '▌  ▏ ' : '### '; // 保留了一个空格，下面不要重复写空格
 
     // 处理评论内容中的换行符，确保在markdown中正确换行
     const formattedContent = comment.content.replace('\n', '\n\n').split('\n')
-        .map(line => `${prefix}${line}`)
+        .map(line => `\t${line}`) // 加了缩进
         .join('\n');
 
     // 构建基本评论模板
     let markdown = [
-        `${prefix}${titleLevel} ${comment.author}${comment.beReplied ? ` › ${comment.beReplied}` : ''}`,
-        prefix,
-        formattedContent,
-        prefix
+        `${titleLevel}[author: ${comment.author}]${comment.beReplied ? ` › [author: ${comment.beReplied}]` : ''}`,
+        `content:`,
+        formattedContent // 在他的内容里面加了缩进
     ];
 
     if (comment.img) {
@@ -1252,19 +1255,18 @@ function renderCommentToMarkdown(comment, comments, level = 0, isLocalImg) {
             comment.img = './assets/' + comment.img.replace(/\?.*?$/, "").split("/").pop()
         }
         // @ts-ignore
-        window.no_save_img && !isLocalImg ?
-            markdown.push(`${prefix}[图片]`, prefix) :
-            markdown.push(`${prefix}![](${comment.img})`, prefix)
+        window.no_save_img && !isLocalImg ? //加了缩进和标签
+            markdown.push(`images: \n\t[图片]`) :
+            markdown.push(`images: \n\t![](${comment.img})`)
         // @ts-ignore
         console.log('comment.img', window.no_save_img);
     }
 
     markdown.push(
-        `${prefix}${comment.time} ${comment.location} ${comment.likes} 赞`,
-        prefix
+        `time: [${comment.time}]\n` +`location: [${comment.location}]\n` + `likes: [${comment.likes}]\n` // 移除prefix并加上相应标签
     );
 
-    // 递归处理回复
+    // 递归处理回复，看不懂未做修改
     if (comment.replies && comment.replies.length) {
         const repliesMarkdown = comment.replies
             .map(replyId => comments.get(replyId))
@@ -1436,20 +1438,32 @@ function detectType(dom, bt, ev) {
      * 标题，链接，作者名，赞数，评论数，创建时间，修改时间
      * (author.badge ? ('\nauthor_badge: ' + author.badge) : '')
      */
+
     const getFrontmatter = () => {
-        let fm = '---'
-            + '\ntitle: ' + title
-            + '\nurl: ' + url
-            + '\nauthor: ' + author.name
-            + '\nauthor_badge: ' + author.badge
-            + `${Location ? '\nlocation: ' + Location : ''}`
-            + '\ncreated: ' + time.created
-            + '\nmodified: ' + time.modified
-            + '\nupvote_num: ' + upvote_num
-            + '\ncomment_num: ' + comment_num
-            + '\n---\n';
-        return fm;
-    };
+    // 获取当前时间并格式化为 "YYYY-MM-DDTHHMM-SS"
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const uid = `${year}-${month}-${day}T${hours}${minutes}-${seconds}`;
+    let fm = '---'
+        + '\nuid: ' +  uid  // 添加 uid 字段=备份时间
+        + '\nbackup_time: ' + uid // 备份时间
+        + '\ntitle: ' + title
+        + '\nurl: ' + url
+        + '\nauthor: ' + author.name
+        + '\nauthor_badge: ' + author.badge
+        + `${Location ? '\nlocation: ' + Location : ''}`
+        + '\ncreated: ' + time.created
+        + '\nmodified: ' + time.modified
+        + '\nupvote_num: ' + upvote_num
+        + '\ncomment_num: ' + comment_num
+        + '\n---\n';
+    return fm;
+};
     /**
      * 生成目录
      */
@@ -1535,7 +1549,7 @@ function detectType(dom, bt, ev) {
                 else {
                     if (openComment && openComment.querySelector('.css-1tdhe7b'))
                         tip = '**评论内容由作者筛选后展示**\n\n';
-                    // @ts-ignore 
+                    // @ts-ignore
                     let commentsData = (_a = window.ArticleComments[itemId]) === null || _a === void 0 ? void 0 : _a.comments;
                     if (!commentsData) {
                         if (!openComment)
@@ -1581,7 +1595,7 @@ function detectType(dom, bt, ev) {
     if (button == 'copy') {
         try {
             // @ts-ignore
-            var copy_save_fm = GM_getValue("copy_save_fm"), 
+            var copy_save_fm = GM_getValue("copy_save_fm"),
             // @ts-ignore
             copy_save_cm = GM_getValue("copy_save_cm");
         }
@@ -3009,28 +3023,28 @@ function addParseButton(ContentItem, itemId) {
  * 2 点击评论区查看子评论
  * 3 点击评论区查看全部评论（div.css-wu78cf）（折叠评论css-1r40vb1）
  * 4 打开Modal后，点击Modal内查看子评论（css-tpyajk下才是真的评论区）不可能在点击时直接获取ID
- * 
+ *
  * 计划：
  * 1
  * 点击时查找主人ID，延时触发添加按钮（同时会添加事件）
  * 问题是在 4 时仍然找不到
- * 
+ *
  * 2
  * 点击 123 时查找主人ID并存入window，延时触发添加按钮，不传ID
  * 点击 4 时只延时触发添加按钮，不传ID
  * 使用按钮时如果没有主人ID（发生在由 1234 创造的 Modal 内按钮），使用window中的
  * 延时后只在Modal内添加（ 1 有时并不会创造Modal，此时由滚动添加）
- * 
+ *
  * 3
  * （可替代非Modal场景）
  * 点击 123 时查找主人ID，延时添加到 Modal DOM 上，延时触发添加按钮，不传ID
  * 点击 1 时额外判断如果延时后没有Modal，就传ID添加按钮
  * 23时没有可以再试一次
  * 使用按钮时如果没有主人ID（发生在由 1234 创造的 Modal 内按钮），使用 Modal DOM 中的
- * 
- * 
+ *
+ *
  * 路线
- * 
+ *
  * 基本解析功能
  * 挂载按钮与事件
  * 合并入主程序
@@ -3040,7 +3054,7 @@ function addParseButton(ContentItem, itemId) {
  * 细节处理（筛选后显示、已关闭、待展开子项）
  * 人性化提示（保存正文前、暂存反馈）
  * 专栏与搜索结果页
- * 
+ *
  */
 /**
  * 调用后挂载document点击事件
@@ -3114,7 +3128,7 @@ const mountParseComments = () => {
 }
 
 /**
- * 
+ *
  * @param {HtmlElement} father 含有itemId zop
  * @param {HtmlElement} etg e.target
  * @returns {String}
@@ -3477,6 +3491,8 @@ const main = () => src_awaiter(void 0, void 0, void 0, function* () {
                     const blob = new Blob([result.textString], { type: 'text/plain' });
                     (0,FileSaver_min.saveAs)(blob, result.title + ".md");
                     ButtonText.innerHTML = "下载成功✅<br>请看下载记录，以文本方式打开";
+                    // navigator.clipboard.writeText('[['+result.title+']]'); //加上这句，可以把文件名复制到剪贴板中，方便obsidian写笔记
+                    navigator.clipboard.writeText('['+result.title+']'+'(../SimpRead/'+result.title.replace(/ /g, "%20")+'.md)'); // 因为保存到的是摘录文件夹了，所以就写成这样了。replace(/ /g, "%20")是把所有的空格转义成%20
                     setTimeout(() => {
                         ButtonText.innerHTML = "下载为纯文本";
                     }, 5000);
